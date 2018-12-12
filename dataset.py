@@ -1,6 +1,5 @@
 from data_rasterize import rasterize
 from os.path import join
-import numpy as np
 
 #方法一：将一个数据的22个序列作为一个list，再进行list的组合，得到的是len==80的list
 # def create_dataset(rootpath):
@@ -15,8 +14,6 @@ def create_dataset(rootpath):
     data_list = []
     for i in range(100):
         data_path = join(rootpath, "{}.xlsx".format(i+1))
-        seq_list = rasterize(data_path)
+        seq_list = rasterize(i+1, data_path, False)
         data_list += seq_list
     return data_list
-# y = create_dataset("dataset")
-# print(len(y))
